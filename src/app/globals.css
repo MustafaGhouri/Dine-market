@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700;800&display=swap');
 
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -18,10 +19,54 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav li a {
+  color: black
+}
+
+nav li {
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: .5s;
+
+}
+
+/* nav li:hover {
+  background-color: aliceblue;
+  transition: .5s;
+} */
+
+nav ul {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 50px;
+}
+
+nav li input {
+  border: 1px solid rgb(203, 202, 202);
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.bannerCircle {
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background-color: #60acee;
+  z-index: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
