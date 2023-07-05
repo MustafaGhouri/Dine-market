@@ -1,15 +1,30 @@
-`use client`;
-import React from "react";
+"use client"
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import BrandLogo from "../../assets/Logo.webp";
 import cartImg from "../../assets/icons/shopping-cart.png";
 import Link from "next/link";
 import { navigation } from "@/default/navigation";
 
-function Header() {
+const Header: React.FC = () => {
+  const [isSticky, setIsSticky] = useState(false);
+  const handleScroll = () => {
+    const scrollPosition = window.scrollY;
+    const shouldBeSticky = scrollPosition > 0; 
+
+    setIsSticky(shouldBeSticky);
+  };
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <>
-      <nav className="bg-white">
+      <nav className={isSticky ? "stickyNav " : "bg-white naxse top-0"}>
         <div className="container py-4 mx-auto w-full px-2 sm:px-6 lg:px-8">
           <div className="relative flex h-16 items-center justify-between">
             <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -35,7 +50,7 @@ function Header() {
                     d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
                   />
                 </svg>
- 
+
                 <svg
                   className="hidden h-6 w-6"
                   fill="none"

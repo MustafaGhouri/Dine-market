@@ -70,3 +70,18 @@ nav li input {
   top: 0;
   right: 0;
 }
+
+.naxse {
+  z-index: 999;
+  transition: .8s;
+  background-color: rgba(255, 255, 255, 0.761);
+}
+
+.stickyNav {
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(12px);
+  z-index: 999;
+  transition: .8s;
+  background-color: rgba(223, 253, 253, 0.761);
+}

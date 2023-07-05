@@ -1,4 +1,4 @@
-`use client`;
+"use client";
 import Link from "next/link";
 import Header from "./components/header";
 import Image from "next/image";
@@ -6,12 +6,18 @@ import cartImg from "../assets/icons/shopping-cart.png";
 import { BannerBreands } from "../default/defaults";
 import BannerImage from "../assets/components/banner2.png";
 import PromotionEvent from "./components/promotionEvent";
+import ProductStyle1 from "./components/products/style1";
+import SectionHeader from "./components/SectionHeader";
 export default function Home() {
   return (
     <main className="">
       <Header />
       <Banner />
       <PromotionEvent/>
+      <div className="my-10">
+      <SectionHeader  smallerHeading='PRODUCTS' BiggerHeading='Check What We Have'/>
+      <ProductStyle1/>
+      </div>
     </main>
   );
 }
@@ -19,7 +25,7 @@ export default function Home() {
 const Banner = () => {
   return (
     <div className="mx-auto mt-8 max-w-6xl w-full">
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 p-10 lg:px-0 lg:grid-cols-2 gap-4">
         <div className=" gap-7 pt-6   flex flex-col">
           <span className="bg-blue-100  text-blue-700 px-4 h-fit w-fit rounded-md py-2">
             Sale 70%
@@ -40,7 +46,7 @@ const Banner = () => {
           </Link>
           <Brands />
         </div>
-        <div className="relative">
+        <div className="relative hidden lg:block">
           {/* <div className=" bannerCircle  "></div> */}
           <Image src={BannerImage} alt="" className="z-10 relative" />
         </div>
@@ -51,7 +57,7 @@ const Banner = () => {
 
 const Brands = () => {
   return (
-    <div className="flex gap-2 mt-10 align-middle grayscale">
+    <div className="flex gap-2 mt-10 align-middle grayscale ">
       {BannerBreands.map((res) => {
         return (
           <Image
