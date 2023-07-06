@@ -29,6 +29,7 @@ export const Products: {
   category: string;
   gender: string;
   price: number;
+  slug:string;
 }[] = [
   {
     id: 1,
@@ -37,6 +38,7 @@ export const Products: {
     category: "sweater",
     price: 195,
     gender: "female",
+    slug:'brushed-raglan-sweatshirt'
   },
   {
     id: 2,
@@ -45,6 +47,7 @@ export const Products: {
     category: "dress",
     price: 545,
     gender: "female",
+    slug:'cameryn-sash-tie-dress'
   },
   {
     id: 3,
@@ -53,6 +56,7 @@ export const Products: {
     category: "sweater",
     price: 175,
     gender: "female",
+    slug:'flex-sweatshirt'
   },
   {
     id: 4,
@@ -61,6 +65,7 @@ export const Products: {
     category: "pants",
     price: 175,
     gender: "female",
+    slug:'flex-sweatpants'
   },
   {
     id: 5,
@@ -69,6 +74,7 @@ export const Products: {
     category: "pants",
     price: 195,
     gender: "female",
+    slug:'pink-fleece-sweatpants'
   },
   {
     id: 6,
@@ -77,6 +83,7 @@ export const Products: {
     category: "pants",
     price: 150,
     gender: "female",
+    slug:'lite-sweatpants'
   },
   {
     id: 7,
@@ -85,6 +92,7 @@ export const Products: {
     category: "jackets",
     price: 525,
     gender: "female",
+    slug:'imperial-alpaca-hoodie'
   },
   {
     id: 8,
@@ -93,6 +101,7 @@ export const Products: {
     category: "t shirts",
     price: 75,
     gender: "female",
+    slug:'muscle-tank'
   },
   {
     id: 9,
@@ -101,6 +110,7 @@ export const Products: {
     category: "jackets",
     price: 225,
     gender: "female",
+    slug:'brushed-bomber'
   },
 
   {
@@ -110,6 +120,7 @@ export const Products: {
     category: "jackets",
     price: 225,
     gender: "male",
+    slug:'flex-push-button-bomber'
   },
   {
     id: 12,
@@ -118,6 +129,7 @@ export const Products: {
     category: "sweater",
     price: 195,
     gender: "male",
+    slug:'raglan-sweatshirt'
   },
 ];
 

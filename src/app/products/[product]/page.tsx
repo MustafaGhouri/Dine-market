@@ -2,6 +2,7 @@
 import React from "react";
 import ProductGrid from "../../components/products/grid";
 import SectionHeader from "@/app/components/SectionHeader";
+
 const Product = (param: any = "") => {
   let queryParam = param?.params?.product;
   return (

@@ -62,7 +62,7 @@ const ProductGrid = ({
           <Link
             key={res.id}
             className="col-span-3 relative overflow-hidden"
-            href={"/product-detail/" + res?.id}
+            href={"/product-detail/" + res?.slug}
           >
             <Image
               src={res.images[0].image}
