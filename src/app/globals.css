@@ -76,12 +76,65 @@ nav li input {
   transition: .8s;
   background-color: rgba(255, 255, 255, 0.761);
 }
-
-.stickyNav {
-  position: sticky;
+body{
+  scroll-behavior: smooth;
+}
+.stickyNav { 
+  position: -webkit-sticky;
+  position: sticky; 
   top: 0;
   backdrop-filter: blur(12px);
   z-index: 999;
   transition: .8s;
   background-color: rgba(223, 253, 253, 0.761);
 }
+
+.align-items-end {
+  align-items: end !important;
+}
+
+.icon-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.icon-container a {
+  padding: 10px 12px;
+  background-color: #f1f1f1;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.footer-links h3 {
+  font-weight: 700;
+  font-size: 1.2rem;
+  line-height: 19px;
+  letter-spacing: .02em;
+  color: #666;
+}
+footer li:first-child {
+  margin-top: 25px;
+}
+
+footer li, footer p {
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 22px;
+  color: #666;
+}
+
+main {
+  width: 100%;
+  position: relative; 
+}
+
+
+
+
+
+
+
+
+
+

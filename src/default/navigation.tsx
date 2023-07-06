@@ -1,18 +1,18 @@
 export const navigation: { label: string; path: string }[] = [
   {
     label: "Female",
-    path: "/female",
+    path: "/products/female",
   },
   {
     label: "Male",
-    path: "/male",
+    path: "/products/male",
   },
   {
     label: "Kids",
-    path: "/kids",
+    path: "/products/kids",
   },
   {
     label: "All Products",
-    path: "/all-products",
+    path: "/products",
   },
 ];
