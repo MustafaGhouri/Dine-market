@@ -1,8 +1,8 @@
 'use client';
 import React from 'react'
 
-const productDetails = (param) => {
-    console.log("param ",param?.params?.productDetail);
+const productDetails = ({params}) => {
+    console.log("param ",params?.productDetail);
   return (
     <div>productDetails</div>
   )
