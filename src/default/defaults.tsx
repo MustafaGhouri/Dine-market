@@ -137,7 +137,7 @@ export const AboutData: {
   heading: string;
   image: any;
   detail: string;
-  item: [{ heading: string; paragraph: string }][];
+  item: { heading: string; paragraph: string }[];
 } = {
   heading: "Unique and Authentic Vintage Designer Jewellery",
   image: aboutImg,
