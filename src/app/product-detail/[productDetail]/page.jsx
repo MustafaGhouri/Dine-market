@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import "react-toastify/dist/ReactToastify.css";
 import {BsCart3} from 'react-icons/bs';
-const productDetails = ({ params }) => {
+const ProductDetails = ({ params }) => {
   let slug = params?.productDetail;
   let productfind = Products.find((res) => res.slug == slug);
   const [quantity, setQuantity] = useState(1);
@@ -100,4 +100,4 @@ const productDetails = ({ params }) => {
   )
 }
 
-export default productDetails
+export default ProductDetails
