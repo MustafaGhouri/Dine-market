@@ -26,17 +26,21 @@ export const Products: {
   id: number;
   name: string;
   images: [{ id: number; image: any }];
+  sizes: any;
   category: string;
   gender: string;
   price: number;
+  detail : string;
   slug:string;
 }[] = [
   {
     id: 1,
     name: "Brushed Raglan Sweatshirt",
+    sizes:['XS','S','M','L','XL'],
     images: [{ id: 1, image: ProductImg1 }],
     category: "sweater",
     price: 195,
+    detail:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     gender: "female",
     slug:'brushed-raglan-sweatshirt'
   },
@@ -44,8 +48,10 @@ export const Products: {
     id: 2,
     name: "Cameryn Sash Tie Dress",
     images: [{ id: 1, image: ProductImg2 }],
+    sizes:['XS','S','M','L','XL'],
     category: "dress",
     price: 545,
+    detail:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     gender: "female",
     slug:'cameryn-sash-tie-dress'
   },
@@ -53,8 +59,10 @@ export const Products: {
     id: 3,
     name: "Flex Sweatshirt",
     images: [{ id: 1, image: ProductImg3 }],
+    sizes:['XS','S','M','L','XL'],
     category: "sweater",
     price: 175,
+    detail:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     gender: "female",
     slug:'flex-sweatshirt'
   },
@@ -62,8 +70,10 @@ export const Products: {
     id: 4,
     name: "Flex Sweatpants",
     images: [{ id: 1, image: ProductImg4 }],
+    sizes:['XS','S','M','L','XL'],
     category: "pants",
     price: 175,
+    detail:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     gender: "female",
     slug:'flex-sweatpants'
   },
@@ -71,8 +81,10 @@ export const Products: {
     id: 5,
     name: "Pink Fleece Sweatpants",
     images: [{ id: 1, image: ProductImg5 }],
+    sizes:['XS','S','L','XL'],
     category: "pants",
     price: 195,
+    detail:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     gender: "female",
     slug:'pink-fleece-sweatpants'
   },
@@ -80,8 +92,10 @@ export const Products: {
     id: 6,
     name: "Lite Sweatpants",
     images: [{ id: 1, image: ProductImg6 }],
+    sizes:['XS','M','L','XL'],
     category: "pants",
     price: 150,
+    detail:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     gender: "female",
     slug:'lite-sweatpants'
   },
@@ -89,8 +103,10 @@ export const Products: {
     id: 7,
     name: "Imperial Alpaca Hoodie",
     images: [{ id: 1, image: ProductImg7 }],
+    sizes:['XS','S','M','L','XL'],
     category: "jackets",
     price: 525,
+    detail:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     gender: "female",
     slug:'imperial-alpaca-hoodie'
   },
@@ -98,8 +114,10 @@ export const Products: {
     id: 8,
     name: "Muscle Tank",
     images: [{ id: 1, image: ProductImg8 }],
+    sizes:['S','M','XL'],
     category: "t shirts",
     price: 75,
+    detail:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     gender: "female",
     slug:'muscle-tank'
   },
@@ -107,8 +125,10 @@ export const Products: {
     id: 9,
     name: "Brushed Bomber",
     images: [{ id: 1, image: ProductImg9 }],
+    sizes:['XS','M','L'],
     category: "jackets",
     price: 225,
+    detail:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     gender: "female",
     slug:'brushed-bomber'
   },
@@ -117,8 +137,10 @@ export const Products: {
     id: 11,
     name: "Flex Push Button Bomber",
     images: [{ id: 1, image: ProductImg10 }],
+    sizes:['XS','S','M','L','XL'],
     category: "jackets",
     price: 225,
+    detail:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     gender: "male",
     slug:'flex-push-button-bomber'
   },
@@ -126,8 +148,10 @@ export const Products: {
     id: 12,
     name: "Raglan Sweatshirt",
     images: [{ id: 1, image: ProductImg11 }],
+    sizes:['XS','S','M','L','XL'],
     category: "sweater",
     price: 195,
+    detail:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     gender: "male",
     slug:'raglan-sweatshirt'
   },

@@ -59,7 +59,7 @@ const Footer = () => {
 
 const FooterLabel = () =>{
     return(
-        <div className="border-t-2 py-8 border-t-black border-solid">
+        <div className="border-t border py-8 border-t-black border-solid">
         <div className="container max-w-6xl mx-auto text-gray-900">
             <div className="grid grid-cols-3 justify-between">
                 <div className="text-start">

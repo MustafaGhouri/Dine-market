@@ -112,7 +112,8 @@ const Header: React.FC = () => {
         </div> 
       </nav>
 
-      <div className={"lg:hidden"}>
+      <div className={ isSticky
+            ? "stickyNav lg:hidden":'lg:hidden'}>
         <div
           className={
             mobileMenuOpen
@@ -121,7 +122,7 @@ const Header: React.FC = () => {
           }
         >
           <div className="flex items-center justify-between">
-          <Link href={'/'}>
+          <Link href={'/'} >
               <Image
                 src={BrandLogo}
                 alt="Picture of the author"
@@ -145,6 +146,7 @@ const Header: React.FC = () => {
                 {navigation.map((res,i) => {
                   return (
                     <Link
+                      onClick={()=>{setMobileMenuOpen(false)}}
                       className="text-gray-800 hover:bg-gray-100 w-full block rounded-md px-3 pt-3 pb-1 text-12px font-medium"
                       href={res.path}
                       key={i}

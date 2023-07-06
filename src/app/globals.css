@@ -128,6 +128,9 @@ main {
   width: 100%;
   position: relative; 
 }
+.product-size label:has(input:checked){
+  @apply bg-gray-300
+}
 
 
 
