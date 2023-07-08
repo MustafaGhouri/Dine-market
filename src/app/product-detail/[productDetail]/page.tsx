@@ -12,7 +12,7 @@ import { IProduct } from "@/interfaces";
 import { client } from "@/lib/sanityClient";
 import { urlForImage } from "../../../../sanity/lib/image";
 
-export const ProductDetails =  (params: any) => {
+ const ProductDetails =  (params: any) => {
   let slug = params.params.productDetail;
   const [quantity, setQuantity] = useState(1);
   const [size, setSize] = useState("");
