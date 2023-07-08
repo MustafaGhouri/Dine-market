@@ -24,6 +24,7 @@ export const BannerBreands: { id: number; alt: string; logo: any }[] = [
 ]; 
 export const Products: {
   id: number;
+  stripeId:string;
   name: string;
   images: [{ id: number; image: any }];
   sizes: any;
@@ -35,39 +36,43 @@ export const Products: {
 }[] = [
   {
     id: 1,
+    stripeId:'prod_ODKVAYygLLtnsz',
     name: "Brushed Raglan Sweatshirt",
     sizes:['XS','S','M','L','XL'],
     images: [{ id: 1, image: ProductImg1 }],
     category: "sweater",
     price: 195,
-    detail:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    detail:'The Brushed Raglan Sweatshirt is the perfect combination of comfort and style. Crafted with meticulous attention to detail, this sweatshirt is designed to provide a cozy and relaxed fit while keeping you effortlessly fashionable.',
     gender: "female",
     slug:'brushed-raglan-sweatshirt'
   },
   {
     id: 2,
+    stripeId:'prod_ODKXVCNa0ahTeB',
     name: "Cameryn Sash Tie Dress",
     images: [{ id: 1, image: ProductImg2 }],
     sizes:['XS','S','M','L','XL'],
     category: "dress",
     price: 545,
-    detail:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    detail:'The Cameryn Sash Tie Dress is a stylish and versatile clothing item that combines elegance with comfort. This dress features a flattering silhouette with a fitted bodice and a flowing skirt that falls gracefully around the body. It is crafted from high-quality fabric, ensuring a soft and luxurious feel against the skin. The defining feature of this dress is the sash tie detail, which can be wrapped around the waist and tied in a bow or knot, adding a touch of femininity and creating a customized fit. With its timeless design and attention to detail, the Cameryn Sash Tie Dress is perfect for various occasions, from casual outings to more formal events, making it a wardrobe staple for any fashion-forward individual.',
     gender: "female",
     slug:'cameryn-sash-tie-dress'
   },
   {
     id: 3,
+    stripeId:'prod_ODKa8crYOx0W5X',
     name: "Flex Sweatshirt",
     images: [{ id: 1, image: ProductImg3 }],
     sizes:['XS','S','M','L','XL'],
     category: "sweater",
     price: 175,
-    detail:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    detail:'The "Flex Sweatshirt" is a versatile and comfortable garment that combines the classic style of a sweatshirt with a stretchy fabric for enhanced flexibility. Stay cozy while enjoying unrestricted movement, making it perfect for workouts, lounging, or casual outings. Experience the ultimate blend of comfort and style.',
     gender: "female",
     slug:'flex-sweatshirt'
   },
   {
     id: 4,
+    stripeId:'prod_ODKbP3ouqL6zc4',
     name: "Flex Sweatpants",
     images: [{ id: 1, image: ProductImg4 }],
     sizes:['XS','S','M','L','XL'],
@@ -79,6 +84,7 @@ export const Products: {
   },
   {
     id: 5,
+    stripeId:'prod_ODKclLlYkQEzFH',
     name: "Pink Fleece Sweatpants",
     images: [{ id: 1, image: ProductImg5 }],
     sizes:['XS','S','L','XL'],
@@ -90,6 +96,7 @@ export const Products: {
   },
   {
     id: 6,
+    stripeId:'prod_ODKc0wbAUhUKTK',
     name: "Lite Sweatpants",
     images: [{ id: 1, image: ProductImg6 }],
     sizes:['XS','M','L','XL'],
@@ -101,6 +108,7 @@ export const Products: {
   },
   {
     id: 7,
+    stripeId:'prod_ODKdKwXRuHgsG5',
     name: "Imperial Alpaca Hoodie",
     images: [{ id: 1, image: ProductImg7 }],
     sizes:['XS','S','M','L','XL'],
@@ -112,6 +120,7 @@ export const Products: {
   },
   {
     id: 8,
+    stripeId:'prod_ODKd3eRyr1aoIh',
     name: "Muscle Tank",
     images: [{ id: 1, image: ProductImg8 }],
     sizes:['S','M','XL'],
@@ -123,6 +132,7 @@ export const Products: {
   },
   {
     id: 9,
+    stripeId:'prod_ODKd0ViuZRwgYL',
     name: "Brushed Bomber",
     images: [{ id: 1, image: ProductImg9 }],
     sizes:['XS','M','L'],
@@ -134,7 +144,8 @@ export const Products: {
   },
 
   {
-    id: 11,
+    id: 10,
+    stripeId:'prod_ODKe108epYWfd0',
     name: "Flex Push Button Bomber",
     images: [{ id: 1, image: ProductImg10 }],
     sizes:['XS','S','M','L','XL'],
@@ -145,7 +156,8 @@ export const Products: {
     slug:'flex-push-button-bomber'
   },
   {
-    id: 12,
+    id: 11,
+    stripeId:'prod_ODKfdVyN4mFFRt',
     name: "Raglan Sweatshirt",
     images: [{ id: 1, image: ProductImg11 }],
     sizes:['XS','S','M','L','XL'],

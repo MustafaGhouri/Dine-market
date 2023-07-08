@@ -1,9 +1,10 @@
+import "react-toastify/dist/ReactToastify.css";
 import "./globals.css";
 import { Sora } from "next/font/google";
 import localFont from "@next/font/local";
 import { ToastContainer, toast } from "react-toastify";
-import Header from "./components/header";
-import Footer from "./components/footer";
+import Header from "@/components/header";
+import Footer from "@/components/footer";
 const NUSAR = localFont({
   src: [
     {
@@ -15,7 +16,7 @@ const NUSAR = localFont({
 });
 
 const sora = Sora({
-  subsets: ["latin"],
+  subsets: ["latin-ext"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
   display: "swap",
   variable: "--font-sora",
@@ -41,7 +42,6 @@ export default function RootLayout({
         <Header />
         <ToastContainer />
         {children}
-
         <Footer />
       </body>
     </html>

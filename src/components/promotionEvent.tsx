@@ -1,8 +1,8 @@
 import React from "react";
 import SectionHeader from "./SectionHeader";
-import event1 from "../../assets/components/event1.png";
-import event2 from "../../assets/components/event2.png";
-import event3 from "../../assets/components/event3.png";
+import event1 from "../assets/components/event1.png";
+import event2 from "../assets/components/event2.png";
+import event3 from "../assets/components/event3.png";
 import Image from "next/image"; 
 
 

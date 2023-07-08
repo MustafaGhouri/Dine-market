@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
-import ProductGrid from "../components/products/grid";
-import SectionHeader from "../components/SectionHeader";
+import ProductGrid from "@/components/products/grid";
+import SectionHeader from "@/components/SectionHeader";
 const ProductPage = (param: any) => {
   return (
     <div className="container max-w-6xl mx-auto px-5 lg:px-0 py-10 ">

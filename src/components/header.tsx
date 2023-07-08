@@ -1,26 +1,29 @@
-"use client";
+'use client'
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import BrandLogo from "../../assets/Logo.webp";
-import cartImg from "../../assets/icons/shopping-cart.png";
+import BrandLogo from "../assets/Logo.webp";
 import Link from "next/link";
 import { navigation } from "@/default/navigation";
 import { FaSearch } from "react-icons/fa";
 import { HiXMark } from "react-icons/hi2";
 import { GiHamburgerMenu } from "react-icons/gi";
+import CartButton from "./cartbtn";
 
-const Header: React.FC = () => {
+
+const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
+
+  
   const handleScroll = () => {
     const scrollPosition = window.scrollY;
     const shouldBeSticky = scrollPosition > 0;
 
     setIsSticky(shouldBeSticky);
   };
+
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
-
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -47,20 +50,21 @@ const Header: React.FC = () => {
           <div className="relative flex h-16 items-center justify-between">
             <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
               <div className="flex flex-shrink-0 items-center">
-                <Link href={'/'}>
-                <Image
-                  src={BrandLogo}
-                  alt="Picture of the author"
-                  className=" w-100 h-100"
-                  width={140}
-                  placeholder="blur"
-                /></Link>
+                <Link href={"/"}>
+                  <Image
+                    src={BrandLogo}
+                    alt="Picture of the author"
+                    className=" w-100 h-100"
+                    width={140}
+                    placeholder="blur"
+                  />
+                </Link>
               </div>
               <div className="hidden w-full  ml-6 sm:block">
                 <div className="grid w-full grid-cols-12 justify-evenly ">
                   <div className="col-span-7">
                     <div className="flex mx-auto align-middle  ">
-                      {navigation.map((res,i) => {
+                      {navigation.map((res, i) => {
                         return (
                           <Link
                             className="text-gray-800 hover:bg-gray-100   rounded-md px-3 pt-3 pb-1 text-12px font-medium"
@@ -78,12 +82,12 @@ const Header: React.FC = () => {
                       <form
                         className="mx-auto p-1 rounded-md max-w-xs w-full flex flex-col align-middle  lg:justify-center align-items-center lg:flex-row"
                         style={{ border: "1px solid black" }}
-                        action={'/products'}
+                        action={"/products"}
                       >
                         <input
                           id="searchbar"
                           name="q"
-                          type="text" 
+                          type="text"
                           required
                           className=" w-full m-0 h-fit border-solid  border-1 border-black  focus:outline-none bg-white/5 px-2 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
                           placeholder="Search Product."
@@ -96,12 +100,7 @@ const Header: React.FC = () => {
                         </button>
                       </form>
                       <div className=" ">
-                        <Link
-                          href=""
-                          className="rounded-full flex bg-gray-700 hover:bg-gray-800 hover:shadow-lg transition-shadow duration-75 p-3"
-                        >
-                          <Image src={cartImg} alt="cart" />
-                        </Link>
+                        <CartButton />
                       </div>
                     </div>
                   </div>
@@ -109,11 +108,10 @@ const Header: React.FC = () => {
               </div>
             </div>
           </div>
-        </div> 
+        </div>
       </nav>
 
-      <div className={ isSticky
-            ? "stickyNav lg:hidden":'lg:hidden'}>
+      <div className={isSticky ? "stickyNav lg:hidden" : "lg:hidden"}>
         <div
           className={
             mobileMenuOpen
@@ -122,7 +120,7 @@ const Header: React.FC = () => {
           }
         >
           <div className="flex items-center justify-between">
-          <Link href={'/'} >
+            <Link href={"/"}>
               <Image
                 src={BrandLogo}
                 alt="Picture of the author"
@@ -143,10 +141,12 @@ const Header: React.FC = () => {
           <div className={mobileMenuOpen ? "mt-6 flow-root" : "hidden"}>
             <div className="-my-6 divide-y divide-gray-500/10">
               <div className="space-y-2 py-6">
-                {navigation.map((res,i) => {
+                {navigation.map((res, i) => {
                   return (
                     <Link
-                      onClick={()=>{setMobileMenuOpen(false)}}
+                      onClick={() => {
+                        setMobileMenuOpen(false);
+                      }}
                       className="text-gray-800 hover:bg-gray-100 w-full block rounded-md px-3 pt-3 pb-1 text-12px font-medium"
                       href={res.path}
                       key={i}

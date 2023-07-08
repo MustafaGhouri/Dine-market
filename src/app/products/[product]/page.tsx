@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
-import ProductGrid from "../../components/products/grid";
-import SectionHeader from "@/app/components/SectionHeader";
+import ProductGrid from "@/components/products/grid";
+import SectionHeader from "@/components/SectionHeader";
 
 const Product = (param: any = "") => {
   let queryParam = param?.params?.product;

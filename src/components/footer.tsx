@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { FooterData } from "../../default/defaults";
+import { FooterData } from "../default/defaults";
 import Image from "next/image";
 import Link from "next/link";
 

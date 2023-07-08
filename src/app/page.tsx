@@ -1,20 +1,17 @@
 "use client";
-import Link from "next/link";
-import Header from "./components/header";
+import Link from "next/link"; 
 import Image from "next/image";
-import cartImg from "../assets/icons/shopping-cart.png";
+import cartImg from "@/assets/icons/shopping-cart.png";
 import { BannerBreands, AboutData } from "../default/defaults";
 import BannerImage from "../assets/components/banner2.png";
-import PromotionEvent from "./components/promotionEvent";
-import ProductStyle1 from "./components/products/Slider";
-import SectionHeader from "./components/SectionHeader";
-import TextOverlay from "./components/textOverlay"; 
-import NewsLetter from "./components/newsletter";
-import Footer from "./components/footer";
+import PromotionEvent from "@/components/promotionEvent";
+import ProductStyle1 from "@/components/products/Slider";
+import SectionHeader from "@/components/SectionHeader";
+import TextOverlay from "@/components/textOverlay";
+import NewsLetter from "@/components/newsletter"; 
 export default function Home() {
   return (
     <main className="">
-   
       <Banner />
       <PromotionEvent />
       <div className="my-10">
@@ -25,7 +22,7 @@ export default function Home() {
         <ProductStyle1 />
       </div>
       <AboutSection />
-      <NewsLetter/>
+      <NewsLetter />
     </main>
   );
 }
@@ -85,11 +82,20 @@ const AboutSection = () => {
     <div className="container mx-auto lg:p-0 p-10 overflow-x-hidden max-w-6xl">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 py-5 align-items-end relative">
         <div className="relative col-span-1">
-          <h2 className="text-4xl mb-14 lg:text-5xl pl-0 lg:hidden  text-gray-900 col-span-2 font-bold ">{AboutData.heading}</h2>
-          <TextOverlay className={' text-gray-100 leading-loose lg:top-0 top-40'} fontSize={"lg:text-8xl   text-6xl"} text="Different from others" />
+          <h2 className="text-4xl mb-14 lg:text-5xl pl-0 lg:hidden  text-gray-900 col-span-2 font-bold ">
+            {AboutData.heading}
+          </h2>
+          <TextOverlay
+            className={" text-gray-100 leading-loose lg:top-0 top-40"}
+            fontSize={"lg:text-8xl   text-6xl"}
+            text="Different from others"
+          />
           <div className="grid grid-cols-2 gap-8 mt-3 ">
-            {AboutData.item.map((res:any , i) => (
-              <div key={i} className="text-gray-950 w-full lg:w-4/5 flex flex-col gap-3">
+            {AboutData.item.map((res: any, i) => (
+              <div
+                key={i}
+                className="text-gray-950 w-full lg:w-4/5 flex flex-col gap-3"
+              >
                 <h4 className="font-semibold  text-lg">{res?.heading}</h4>
                 <p>{res?.paragraph}</p>
               </div>
@@ -97,19 +103,26 @@ const AboutSection = () => {
           </div>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 col-span-1">
-          <h2 className="text-4xl lg:text-5xl pl-10 hidden lg:block text-gray-900 col-span-2 font-bold mb-3">{AboutData.heading}</h2>
+          <h2 className="text-4xl lg:text-5xl pl-10 hidden lg:block text-gray-900 col-span-2 font-bold mb-3">
+            {AboutData.heading}
+          </h2>
           <div>
-          <Image alt="about" src={AboutData.image} width={300} height={400} className="mt-5 w-full" />
+            <Image
+              alt="about"
+              src={AboutData.image}
+              width={300}
+              height={400}
+              className="mt-5 w-full"
+            />
           </div>
           <p className="text-gray-950 px-0 py-7 lg:p-7 tracking-wider text-justify font-light text-md ">
-
             {AboutData.detail}
             <Link
-            href="/products"
-            className="bg-gray-950 text-white mt-5 flex gap-2 px-3 py-3 rounded-md h-fit w-fit"
-          >
-            See All Products
-          </Link>
+              href="/products"
+              className="bg-gray-950 text-white mt-5 flex gap-2 px-3 py-3 rounded-md h-fit w-fit"
+            >
+              See All Products
+            </Link>
           </p>
         </div>
       </div>
