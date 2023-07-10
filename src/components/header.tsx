@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import BrandLogo from "../assets/Logo.webp";
@@ -7,14 +7,15 @@ import { navigation } from "@/default/navigation";
 import { FaSearch } from "react-icons/fa";
 import { HiXMark } from "react-icons/hi2";
 import { GiHamburgerMenu } from "react-icons/gi";
-import CartButton from "./cartbtn";
-
+import { useSelector } from "react-redux";
+import { RootState } from "@/store/store";
+import cartImg from "../assets/icons/shopping-cart.png";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
 
-  
+  const cartValue = useSelector((state: RootState) => state.cart.totalQuantity);
   const handleScroll = () => {
     const scrollPosition = window.scrollY;
     const shouldBeSticky = scrollPosition > 0;
@@ -100,7 +101,15 @@ const Header = () => {
                         </button>
                       </form>
                       <div className=" ">
-                        <CartButton />
+                        <Link
+                          href="/cart"
+                          className="rounded-full relative flex bg-gray-700 hover:bg-gray-800 hover:shadow-lg transition-shadow duration-75 p-3"
+                        >
+                          <span className="absolute right-1 top-0 rounded-full bg-red-500 h-5 w-5 text-white text-sx text-center">
+                            {cartValue}
+                          </span>
+                          <Image src={cartImg} alt="cart" />
+                        </Link>
                       </div>
                     </div>
                   </div>

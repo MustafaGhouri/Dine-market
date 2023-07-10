@@ -25,7 +25,6 @@ export const product = defineType({
                 
             }
         },
-   
         { name: 'stripeId', title: 'Stripe Id', type: 'string' },
         { name: 'price', title: 'Price', type: 'number' }, 
         { name: 'details', title: 'Details', type: 'string' },

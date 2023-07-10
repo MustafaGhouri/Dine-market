@@ -11,13 +11,12 @@ import { BsCart3 } from "react-icons/bs";
 import { IProduct } from "@/interfaces";
 import { client } from "@/lib/sanityClient";
 import { urlForImage } from "../../../../sanity/lib/image";
-
+import Addtocart from "@/components/addtocart";
  const ProductDetails =  (params: any) => {
   let slug = params.params.productDetail;
   const [quantity, setQuantity] = useState(1);
   const [size, setSize] = useState("");
-  const [iproducts, setIProduct] = useState<IProduct>();
-  const { addToCart, loading, cartCount } = StoreCartFunction();
+  const [iproducts, setIProduct] = useState<IProduct>(); 
   useEffect(() => {
     FetchProduct();
   }, []);
@@ -127,26 +126,7 @@ import { urlForImage } from "../../../../sanity/lib/image";
           </div>
 
           <div className="grid grid-cols-2 mt-8  gap-2">
-            <button
-              onClick={() =>
-                addToCart(
-                  iproducts?._id || "",
-                  size,
-                  quantity,
-                  iproducts?.price.toString() || ""
-                )
-              }
-              disabled={loading}
-              className="bg-gray-950 rounded-md text-white flex gap-2 px-5 py-3 rounded-0 h-fit w-fit"
-            >
-              <BsCart3 />
-              Add to Cart {cartCount}
-              {loading ? (
-                <FontAwesomeIcon className="animate-spin" icon={faSpinner} />
-              ) : (
-                ""
-              )}
-            </button>
+           <Addtocart productid={iproducts?._id || ''} quantity={quantity} size={size} />
 
             <h2 className="text-gray-950 font-bold text-3xl">
               $ {(iproducts?.price || 0) * quantity}
