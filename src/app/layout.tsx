@@ -35,6 +35,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+    
       <body
         className={
           `${sora.variable} font-sora` + " " + `${NUSAR.variable} font-sans`

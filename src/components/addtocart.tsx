@@ -17,7 +17,7 @@ const Addtocart = ({ productid = "", size = "", quantity = 1 }) => {
     toast.dismiss();
     
     setloading(true)
-    dispatch(cartActions.addToCart({ product: {productid}, quantity: quantity}));
+    dispatch(cartActions.addToCart({ product:productid, quantity: quantity,size:size}));
     toast("Cart Updated! 🛒✔", {
       position: "bottom-right",
       autoClose: 5000,
@@ -26,7 +26,8 @@ const Addtocart = ({ productid = "", size = "", quantity = 1 }) => {
       pauseOnHover: false,
       draggable: true,
       progress: undefined,
-      theme: "light",
+      theme: "colored",
+      
     });
     setloading(false)
   };
