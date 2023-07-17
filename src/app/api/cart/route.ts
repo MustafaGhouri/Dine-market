@@ -20,16 +20,14 @@ export const GET = async () => {
         nextCookies.set('user_id', uid);
     }
     let user_idd = nextCookies.get('user_id')?.value as string;
-    let arr :any = {};
+    let arr: any = {};
     let respData: any[] = [];
     try {
         const resp: any = await db.select().from(cartTable).where(eq(cartTable.user_id, user_idd))
         await Promise.all(resp.map(async (item: any) => {
-            
-            console.log('cart products ',item.product_id);
-           
+ 
             const res = await client.fetch(
-                    `*[_type == 'product'  && _id  == '${item.product_id}' ]| order(_createdAt desc){
+                `*[_type == 'product'  && _id  == '${item.product_id}' ]| order(_createdAt desc){
                          title,
                          _id, 
                          slug,
@@ -46,37 +44,48 @@ export const GET = async () => {
                         
                         }
                     `
-                )
-                 arr = {
-                    cartId:item.id,
-                    qty:item.qty,
-                    selected_size:item.size,
-                    id:res[0]._id,
-                    title:res[0].title,
-                    slug:res[0].slug.title,
-                    price:res[0].price,
-                    stripeId:res[0].stripeId,
-                    image:res[0].images,
-                    category:res[0].category,
-                    tags:res[0].tags
-                }
-                 
-                respData.push(arr);
-            }))
-            
-             
-        
-        
-        return NextResponse.json({'res':'success','msg':'Product Successfully found', 'data':respData })
+            )
+            arr = {
+                cartId: item.id,
+                qty: item.qty,
+                selected_size: item.size,
+                id: res[0]._id,
+                title: res[0].title,
+                slug: res[0].slug.title,
+                price: res[0].price,
+                stripeId: res[0].stripeId,
+                image: res[0].images,
+                category: res[0].category,
+                tags: res[0].tags
+            }
+
+            respData.push(arr);
+        }))
+
+
+
+
+        return NextResponse.json({ 'res': 'success', 'msg': 'Product Successfully found', 'data': respData })
 
     }
     catch (err) {
-        return NextResponse.json({'res':'warning','msg':'Data not found',data: err })
+        return NextResponse.json({ 'res': 'warning', 'msg': 'Data not found', data: err })
 
     }
 
 }
 
+export const DELETE = async (request: Request) => {
+    const { searchParams } = new URL(request.url);
+    const productid: string = searchParams.get('id') || '';
+ 
+    try {
+        await db.delete(cartTable).where(eq(cartTable.product_id, productid));
+        return NextResponse.json({ res: 'success', msg: 'Item removed successfully!' });
+    } catch (err) {
+        return NextResponse.json({ res: 'warning', msg: 'Something went wrong.' });
+    }
+}
 
 export const POST = async (request: Request) => {
 
