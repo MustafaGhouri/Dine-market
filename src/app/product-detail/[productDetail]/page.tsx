@@ -3,11 +3,7 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { FaPlus, FaMinus } from "react-icons/fa";
 import TextOverlay from "@/components/textOverlay";
-import "react-toastify/dist/ReactToastify.css";
-import StoreCartFunction from "@/components/storecartfunction";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSpinner } from "@fortawesome/free-solid-svg-icons";
-import { BsCart3 } from "react-icons/bs";
+import "react-toastify/dist/ReactToastify.css";  
 import { IProduct } from "@/interfaces";
 import { client } from "@/lib/sanityClient";
 import { urlForImage } from "../../../../sanity/lib/image";
@@ -17,9 +13,7 @@ import Addtocart from "@/components/addtocart";
   const [quantity, setQuantity] = useState(1);
   const [size, setSize] = useState("");
   const [iproducts, setIProduct] = useState<IProduct>(); 
-  useEffect(() => {
-    FetchProduct();
-  }, []);
+  
 
   const FetchProduct = async () => {
     await client
@@ -52,8 +46,10 @@ import Addtocart from "@/components/addtocart";
       });
   };
 
-  // let iproducts: IProduct = await FetchProduct(slug);
-
+  useEffect(() => {
+    FetchProduct();
+  }, []);
+  
   return (
     <>
     {iproducts ? (

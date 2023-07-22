@@ -254,7 +254,7 @@ const CartProducts = () => {
             <p className="text-gray-950  text-center">
               Shop now,
               <Link className="text-blue-700" href="/products">
-                let's go
+                let&apos;s go
               </Link>
             </p>
           </div>
