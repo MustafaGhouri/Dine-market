@@ -59,9 +59,6 @@ const cartSlice = createSlice({
 
             }
 
-
-
-
         },
 
         removeFromCart(state: CartState, action: PayloadAction<string>) {
@@ -98,7 +95,8 @@ const addCart = async (size: string, qty: number, product_id: string) => {
             }),
         });
      
-
+        console.log('dd ',res);
+        
     } catch (err) {
         console.log(err);
     }

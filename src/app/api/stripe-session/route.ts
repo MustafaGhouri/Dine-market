@@ -11,7 +11,7 @@ export async function POST(request: NextRequest) {
   const body = await request.json();
   console.log(body);
   try {
-    if (body.length > 0) {
+    if (body.cart.length > 0) {
       const session = await stripe.checkout.sessions.create({
         submit_type: "pay",
         mode: "payment",
@@ -23,21 +23,16 @@ export async function POST(request: NextRequest) {
         invoice_creation: {
           enabled: true,
         },
-        line_items: body.map((item: any) => {
+        line_items: body.cart.map((item: any) => {
           return {
             price_data: {
               currency: "usd",
               product_data: {
-                name: item.name,
+                name: item.title,
               },
               unit_amount: item.price * 100,
             },
-            quantity: item.quantity,
-            adjustable_quantity: {
-              enabled: true,
-              minimum: 1,
-              maximum: 10,
-            },
+            quantity: item.qty, 
           };
         }),
         phone_number_collection: {

@@ -15,10 +15,22 @@ const Addtocart = ({ productid = "", size = "", quantity = 1 }) => {
 
   const addItem = () => {
     toast.dismiss();
-    
+    if(size == ''){
+     return toast.warning("Please select product size", {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        
+      });
+    }
     setloading(true)
     dispatch(cartActions.addToCart({ product:productid, quantity: quantity,size:size}));
-    toast("Cart Updated! 🛒✔", {
+    toast.success("Cart Updated! 🛒✔", {
       position: "bottom-right",
       autoClose: 5000,
       hideProgressBar: false,
@@ -26,7 +38,7 @@ const Addtocart = ({ productid = "", size = "", quantity = 1 }) => {
       pauseOnHover: false,
       draggable: true,
       progress: undefined,
-      theme: "colored",
+      theme: "light",
       
     });
     setloading(false)

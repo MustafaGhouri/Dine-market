@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server"
 import { db, cartTable } from '@/lib/drizzle';
 import { v4 as uuid } from 'uuid';
 import { cookies } from "next/headers";
-import { eq, and } from "drizzle-orm";
+import { eq, and, sql } from "drizzle-orm";
 import { client } from "@/lib/sanityClient";
 interface cart {
     id: string,
@@ -25,7 +25,7 @@ export const GET = async () => {
     try {
         const resp: any = await db.select().from(cartTable).where(eq(cartTable.user_id, user_idd))
         await Promise.all(resp.map(async (item: any) => {
- 
+
             const res = await client.fetch(
                 `*[_type == 'product'  && _id  == '${item.product_id}' ]| order(_createdAt desc){
                          title,
@@ -78,7 +78,7 @@ export const GET = async () => {
 export const DELETE = async (request: Request) => {
     const { searchParams } = new URL(request.url);
     const productid: string = searchParams.get('id') || '';
- 
+
     try {
         await db.delete(cartTable).where(eq(cartTable.product_id, productid));
         return NextResponse.json({ res: 'success', msg: 'Item removed successfully!' });
@@ -102,7 +102,11 @@ export const POST = async (request: Request) => {
         try {
             await db.update(cartTable).set({ size: req.size, qty: req.qty }).where(and(eq(cartTable.product_id, req.product_id), eq(cartTable.user_id, user_idd)));
 
-            return NextResponse.json({ res });
+
+            const countproduct = await db.select({ id: sql<number>`count(${cartTable.id})` }).from(cartTable).where(eq(cartTable.user_id, user_idd));
+            console.log('api ', countproduct[0].id);
+
+            return NextResponse.json({ res: 'success', countCart: countproduct[0].id });
         }
         catch (err) {
             return NextResponse.json({ err });
@@ -117,7 +121,11 @@ export const POST = async (request: Request) => {
                 qty: req.qty,
                 size: req.size,
             })
-            return NextResponse.json({ res });
+
+            const countproduct = await db.select({ id: sql<number>`count(${cartTable.id})` }).from(cartTable).where(eq(cartTable.user_id, user_idd));
+            console.log('api ', countproduct[0].id);
+
+            return NextResponse.json({ res: 'success', countCart: countproduct[0].id });
         }
         catch (err) {
             return NextResponse.json({ err });

@@ -8,12 +8,17 @@ import Image from "next/image";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 import Link from "next/link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSpinner } from "@fortawesome/free-solid-svg-icons";
+import getStipePromise from "@/lib/stripe";
 
 const CartProducts = () => {
   const [cart, setCart] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [totalQuantity, setTotalQuantity] = useState(0);
   const [totalAmount, setTotalAmount] = useState(0);
+  const [Loading, setLoading] = useState(false);
+
   const fetchCart = async () => {
     try {
       let res: any = await fetch(`/api/cart`, {
@@ -96,13 +101,39 @@ const CartProducts = () => {
   useEffect(() => {
     fetchCart();
   }, []);
+
   useEffect(() => {
-    const sum = cart.reduce(
-      (accumulator, currentValue) => accumulator + currentValue.qty,
-      0
-    );
+    let sum = 0;
+    let totalAmount = 0;
+
+    cart.forEach((item) => {
+      sum += item.qty;
+      totalAmount += parseFloat(item.price) * item.qty;
+    });
+
+    setTotalAmount(totalAmount);
     setTotalQuantity(sum);
   }, [cart]);
+
+  const handleCheckOut = async () => {
+    const stripe = await getStipePromise();
+    setIsLoading(true)
+    try {
+      const response = await fetch("api/stripe-session", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        cache: "no-cache",
+        body: JSON.stringify({ cart }),
+      });
+
+      const data = await response.json();
+      if (data.session) {
+        stripe?.redirectToCheckout({ sessionId: data.session.id });
+      }
+     
+    } catch (error) {}
+    setIsLoading(false)
+  };
 
   return (
     <>
@@ -140,9 +171,9 @@ const CartProducts = () => {
                           </button>
                         </div>
 
-                        <p className="text-gray-600 font-semibold capitalize mt-2">
+                        <Link href={`/porducts/${selectProduct?.category.title}`} className="text-gray-600 font-semibold capitalize mt-2">
                           {selectProduct?.category.title}
-                        </p>
+                        </Link>
                       </div>
                       <div>
                         <p className="text-gray-950 font-bold mt-">
@@ -186,16 +217,32 @@ const CartProducts = () => {
                 <h2 className="text-gray-900 text-center font-semibold text-2xl">
                   Shopping Cart
                 </h2>
-                <table>
-                  <tr>
-                    <td>Quantity</td>
-                    <td>{totalQuantity} Product</td>
+                <table className="w-full mt-10 text-gray-900 ">
+                  <tr className="pt-4">
+                    <td className="text-left mt-4">Quantity</td>
+                    <td className="text-right">{totalQuantity} Product</td>
                   </tr>
-                  <tr>
-                    <td>Sub Total</td>
-                    <td> </td>
+                  <tr className="pt-4">
+                    <td className="text-left mt-4">Sub Total</td>
+                    <td className="text-right">{totalAmount} </td>
                   </tr>
                 </table>
+                <button
+                  type="submit"
+                  disabled={Loading}
+                  onClick={handleCheckOut}
+                  className="bg-gray-950 rounded-md text-white flex gap-2 px-5 w-full py-3 justify-center rounded-0 h-fit mt-5 text-center"
+                >
+                  Checkout
+                  {Loading ? (
+                    <FontAwesomeIcon
+                      className="animate-spin"
+                      icon={faSpinner}
+                    />
+                  ) : (
+                    ""
+                  )}
+                </button>
               </div>
             </div>
           </div>
@@ -205,7 +252,7 @@ const CartProducts = () => {
               Your Cart is Empty
             </h1>
             <p className="text-gray-950  text-center">
-              Shop now,{" "}
+              Shop now,
               <Link className="text-blue-700" href="/products">
                 let's go
               </Link>
